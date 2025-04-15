@@ -1,16 +1,17 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-primary: #A78BFA;
-  --color-secondary: #6D28D9;
-  --color-accent: #F3E8FF;
-  --color-neutral: #E5E7EB;
+  --color-primary: #a78bfa;
+  --color-secondary: #6d28d9;
+  --color-accent: #f3e8ff;
+  --color-neutral: #e5e7eb;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -23,4 +24,3 @@ body {
 main {
   flex: 1;
 }
-
