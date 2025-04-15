@@ -2,15 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
     const pathname = usePathname();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navLinks = [
-        { name: "Accueil", path: "/" },
-        { name: "Projets", path: "/projects" },
-        { name: "À propos", path: "/about" },
-        { name: "Contact", path: "/contact" },
+        { name: "Accueil", path: "#" },
+        { name: "À propos", path: "#about" },
+        { name: "Projets", path: "#projects" },
+        { name: "Contact", path: "#contact" },
     ];
 
     return (
@@ -19,12 +22,22 @@ export default function Navbar() {
                 <Link href="/" className="text-2xl font-bold text-[var(--color-primary)]">
                     Florian Beudaert
                 </Link>
-                <div className="flex gap-6 text-gray-700">
+                <button
+                    className="md:hidden text-gray-700"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                >
+                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+                <div
+                    className={`${
+                        isMenuOpen ? "block" : "hidden"
+                    } md:flex flex-col md:flex-row gap-6 text-gray-700 absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none`}
+                >
                     {navLinks.map((link) => (
                         <Link
                             key={link.path}
                             href={link.path}
-                            className={`hover:text-[var(--color-primary)] transition ${
+                            className={`block md:inline hover:text-[var(--color-primary)] transition px-4 py-2 md:p-0 ${
                                 pathname === link.path ? "text-[var(--color-primary)] font-medium" : ""
                             }`}
                         >
