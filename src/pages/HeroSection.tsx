@@ -1,7 +1,16 @@
 import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
 export default function HeroSection() {
   return (
-    <section className="pt-24 pb-12 md:pt-32 md:pb-20 px-4 bg-gray-50">
+    <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 px-4 bg-gray-50 overflow-hidden">
+      {/* Bubbles */}
+      <div className="absolute inset-0">
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+      </div>
+      {/* Content */}
       <div className="max-w-6xl mx-auto text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-[var(--color-secondary)] mb-6">
           Florian Beudaert
@@ -42,3 +51,4 @@ export default function HeroSection() {
     </section>
   );
 }
+
