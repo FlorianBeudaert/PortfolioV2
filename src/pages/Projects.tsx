@@ -71,10 +71,12 @@ export default function Projects() {
           Mes Projets
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsData.map((project) => (
+          {projectsData.map((project, index) => (
             <div
               key={project.id}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
             >
               <img
                 src={project.image}
@@ -116,3 +118,4 @@ export default function Projects() {
     </section>
   );
 }
+
