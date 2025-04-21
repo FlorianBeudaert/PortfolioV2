@@ -1,7 +1,7 @@
 import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
 export default function HeroSection() {
   return (
-    <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 px-4 bg-gray-50 overflow-hidden">
+    <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 px-4 bg-gray-50 overflow-hidden" id="home">
       {/* Annimation de bulle */}
       <div className="absolute inset-0">
         <div className="bubble"></div>

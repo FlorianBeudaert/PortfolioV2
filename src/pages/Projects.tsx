@@ -82,10 +82,10 @@ function Modal({ project, onClose }: { project: any; onClose: () => void }) {
       <div className="fixed inset-0 bg-blur-sm bg-opacity-30 flex items-center justify-center z-50 backdrop-blur-sm">
         <div className="bg-white rounded-lg shadow-lg max-w-lg w-full relative p-6">
           <button
-              className="absolute -top-4 -right-4 bg-white rounded-full p-2 shadow-md text-gray-600 hover:text-gray-800 cursor-pointer"
+              className="absolute top-4 right-4 sm:-top-4 sm:-right-4 bg-white rounded-full p-2 shadow-md text-gray-600 hover:text-gray-800 cursor-pointer"
               onClick={onClose}
           >
-            <X size={24} />
+            <X size={24}/>
           </button>
           <img
               src={project.image}
@@ -95,9 +95,7 @@ function Modal({ project, onClose }: { project: any; onClose: () => void }) {
           <h3 className="text-2xl font-bold text-[var(--color-primary)]">
             {project.title}
           </h3>
-          <p className="text-gray-600 mb-4">
-            {project.description}
-          </p>
+          <p className="text-gray-600 mb-4">{project.description}</p>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech: string, index: number) => (
                 <span
@@ -126,8 +124,7 @@ export default function Projects() {
             {projectsData.map((project) => (
                 <div
                     key={project.id}
-                    className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer"
-                    onClick={() => setSelectedProject(project)}
+                    className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
                 >
                   <img
                       src={project.image}
@@ -150,19 +147,19 @@ export default function Projects() {
                       </span>
                         ))}
                       </div>
-                      <span className="text-[var(--color-primary)] hover:text-[var(--color-secondary)] transition flex items-center">
-                    Voir <ArrowRight size={24} />
-                  </span>
+                      <button
+                          className="text-[var(--color-primary)] hover:text-[var(--color-secondary)] transition flex items-center cursor-pointer"
+                          onClick={() => setSelectedProject(project)}
+                      >
+                        Voir <ArrowRight size={24} />
+                      </button>
                     </div>
                   </div>
                 </div>
             ))}
           </div>
         </div>
-        <Modal
-            project={selectedProject}
-            onClose={() => setSelectedProject(null)}
-        />
+        <Modal project={selectedProject} onClose={() => setSelectedProject(null)} />
       </section>
   );
 }
