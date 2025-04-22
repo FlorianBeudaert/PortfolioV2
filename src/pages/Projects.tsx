@@ -80,9 +80,11 @@ function Modal({ project, onClose }: { project: any; onClose: () => void }) {
 
   return (
       <div className="fixed inset-0 bg-blur-sm bg-opacity-30 flex items-center justify-center z-50 backdrop-blur-sm">
-        <div className="bg-white rounded-lg shadow-lg max-w-lg w-full relative p-6">
+        <div
+            className="bg-white rounded-lg shadow-lg max-w-lg w-full relative p-6">
           <button
-              className="absolute top-4 right-4 sm:-top-4 sm:-right-4 bg-white rounded-full p-2 shadow-md text-gray-600 hover:text-gray-800 cursor-pointer"
+              className="absolute top-0 right-0 m-2 text-gray-600 hover:text-gray-800 cursor-pointer
+             md:-m-2 md:rounded-full md:p-2 md:bg-white md:shadow-md"
               onClick={onClose}
           >
             <X size={24}/>
@@ -90,7 +92,7 @@ function Modal({ project, onClose }: { project: any; onClose: () => void }) {
           <img
               src={project.image}
               alt={project.title}
-              className="w-full h-48 object-cover rounded-md mb-4"
+              className="w-full h-48 object-cover rounded-md mb-4 mt-2"
           />
           <h3 className="text-2xl font-bold text-[var(--color-primary)]">
             {project.title}
@@ -102,8 +104,8 @@ function Modal({ project, onClose }: { project: any; onClose: () => void }) {
                     key={index}
                     className="px-2 py-1 bg-[var(--color-accent)] text-[var(--color-secondary)] rounded text-sm"
                 >
-              {tech}
-            </span>
+                {tech}
+              </span>
             ))}
           </div>
         </div>
