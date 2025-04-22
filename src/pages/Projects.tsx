@@ -5,58 +5,96 @@ const projectsData = [
   {
     id: 1,
     title: 'Projet 1',
-    description:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+    shortDescription:
+        'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+    detailedDescription:
+        'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
     technologies: ['Tech1', 'Tech2'],
-    main_image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    mainImage:
+        'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    images: [
+      'https://placehold.co/600x400',
+      'https://placehold.co/600x400',
+      'https://placehold.co/600x400',
+    ],
   },
   {
     id: 2,
     title: 'Projet 2',
-    description:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+    shortDescription:
+        'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+    detailedDescription:
+        'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
     technologies: ['Tech1', 'Tech2'],
-    main_image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    mainImage:
+        'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    images: [
+      'https://placehold.co/600x400',
+      'https://placehold.co/600x400',
+      'https://placehold.co/600x400',
+    ],
   },
   {
     id: 3,
     title: 'Projet 3',
-    description:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+    shortDescription:
+        'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+    detailedDescription:
+        'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
     technologies: ['Tech1', 'Tech2'],
-    main_image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    mainImage:
+        'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    images: [
+      'https://placehold.co/600x400',
+      'https://placehold.co/600x400',
+      'https://placehold.co/600x400',
+    ],
   },
   {
     id: 4,
     title: 'Projet 4',
-    description:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+    shortDescription:
+        'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+    detailedDescription:
+        'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
     technologies: ['Tech1', 'Tech2'],
-    main_image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    mainImage:
+        'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    images: [
+      'https://placehold.co/600x400',
+      'https://placehold.co/600x400',
+    ],
   },
   {
     id: 5,
     title: 'Projet 5',
-    description:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+    shortDescription:
+        'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+    detailedDescription:
+        'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
     technologies: ['Tech1', 'Tech2'],
-    main_image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    mainImage:
+        'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    images: [
+      'https://placehold.co/600x400',
+      'https://placehold.co/600x400',
+    ],
   },
   {
     id: 6,
     title: 'Projet 6',
-    description:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+    shortDescription:
+        'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+    detailedDescription:
+        'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
     technologies: ['Tech1', 'Tech2'],
-    main_image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    mainImage:
+        'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    images: [
+      'https://placehold.co/600x400',
+    ],
   },
-];
+]
 
 function Modal({ project, onClose }: { project: any; onClose: () => void }) {
   const [isExiting, setIsExiting] = useState(false);
@@ -82,26 +120,38 @@ function Modal({ project, onClose }: { project: any; onClose: () => void }) {
               className="absolute top-0 right-0 m-2 text-gray-600 hover:text-gray-800 cursor-pointer md:-m-2 md:rounded-full md:p-2 md:bg-white md:shadow-md"
               onClick={handleClose}
           >
-            <X size={24} />
+            <X size={24}/>
           </button>
           <img
-              src={project.main_image}
+              src={project.mainImage}
               alt={project.title}
               className="w-full h-48 object-cover rounded-md mb-4 mt-2"
           />
-          <h3 className="text-2xl font-bold text-[var(--color-primary)]">
-            {project.title}
-          </h3>
-          <p className="text-gray-600 mb-4">{project.description}</p>
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech: string, index: number) => (
-                <span
-                    key={index}
-                    className="px-2 py-1 bg-[var(--color-accent)] text-[var(--color-secondary)] rounded text-sm"
-                >
-              {tech}
-            </span>
-            ))}
+          <div className="overflow-y-auto max-h-[50vh]">
+            <h3 className="text-2xl font-bold text-[var(--color-primary)]">
+              {project.title}
+            </h3>
+            <p className="text-gray-600 mb-4">{project.detailedDescription}</p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.technologies.map((tech: string, index: number) => (
+                  <span
+                      key={index}
+                      className="px-2 py-1 bg-[var(--color-accent)] text-[var(--color-secondary)] rounded text-sm"
+                  >
+                {tech}
+              </span>
+              ))}
+            </div>
+            <div className="flex flex-col gap-4">
+              {project.images.map((image: string, index: number) => (
+                  <img
+                      key={index}
+                      src={image}
+                      alt={`Project ${project.title} - Image ${index + 1}`}
+                      className="w-full h-auto object-cover rounded-md"
+                  />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -141,7 +191,7 @@ export default function Projects() {
                     data-aos-delay={index * 100}
                 >
                   <img
-                      src={project.main_image}
+                      src={project.mainImage}
                       alt={`Preview of ${project.title}`}
                       className="w-full h-48 object-cover"
                   />
@@ -149,7 +199,7 @@ export default function Projects() {
                     <h3 className="text-xl font-semibold mb-2 text-[var(--color-primary)]">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 mb-4">{project.description}</p>
+                    <p className="text-gray-600 mb-4">{project.shortDescription}</p>
                     <div className="flex justify-between items-center">
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, index) => (
