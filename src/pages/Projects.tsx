@@ -8,9 +8,8 @@ const projectsData = [
     description:
       'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
     technologies: ['Tech1', 'Tech2'],
-    image:
+    main_image:
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    link: '#',
   },
   {
     id: 2,
@@ -18,9 +17,8 @@ const projectsData = [
     description:
       'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
     technologies: ['Tech1', 'Tech2'],
-    image:
+    main_image:
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    link: '#',
   },
   {
     id: 3,
@@ -28,9 +26,8 @@ const projectsData = [
     description:
       'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
     technologies: ['Tech1', 'Tech2'],
-    image:
+    main_image:
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    link: '#',
   },
   {
     id: 4,
@@ -38,9 +35,8 @@ const projectsData = [
     description:
       'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
     technologies: ['Tech1', 'Tech2'],
-    image:
+    main_image:
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    link: '#',
   },
   {
     id: 5,
@@ -48,9 +44,8 @@ const projectsData = [
     description:
       'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
     technologies: ['Tech1', 'Tech2'],
-    image:
+    main_image:
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    link: '#',
   },
   {
     id: 6,
@@ -58,9 +53,8 @@ const projectsData = [
     description:
       'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
     technologies: ['Tech1', 'Tech2'],
-    image:
+    main_image:
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    link: '#',
   },
 ];
 
@@ -91,7 +85,7 @@ function Modal({ project, onClose }: { project: any; onClose: () => void }) {
             <X size={24} />
           </button>
           <img
-              src={project.image}
+              src={project.main_image}
               alt={project.title}
               className="w-full h-48 object-cover rounded-md mb-4 mt-2"
           />
@@ -147,7 +141,7 @@ export default function Projects() {
                     data-aos-delay={index * 100}
                 >
                   <img
-                      src={project.image}
+                      src={project.main_image}
                       alt={`Preview of ${project.title}`}
                       className="w-full h-48 object-cover"
                   />
