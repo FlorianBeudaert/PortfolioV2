@@ -65,30 +65,30 @@ const projectsData = [
 ];
 
 function Modal({ project, onClose }: { project: any; onClose: () => void }) {
-  useEffect(() => {
-    if (project) {
-      document.body.classList.add('overflow-hidden');
-    } else {
-      document.body.classList.remove('overflow-hidden');
-    }
-    return () => {
-      document.body.classList.remove('overflow-hidden');
-    };
-  }, [project]);
+  const [isExiting, setIsExiting] = useState(false);
+
+  const handleClose = () => {
+    setIsExiting(true);
+    setTimeout(() => {
+      onClose();
+      setIsExiting(false);
+    }, 300);
+  };
 
   if (!project) return null;
 
   return (
-      <div className="fixed inset-0 bg-blur-sm bg-opacity-30 flex items-center justify-center z-50 backdrop-blur-sm">
-        <div
-            className="bg-white rounded-lg shadow-lg relative p-6 w-11/12 lg:w-2/3"
-        >
+      <div
+          className={`fixed inset-0 bg-blur-sm bg-opacity-30 flex items-center justify-center z-50 backdrop-blur-sm modal ${
+              isExiting ? 'modal-exit' : 'modal-enter'
+          }`}
+      >
+        <div className="bg-white rounded-lg shadow-lg relative p-6 w-11/12 lg:w-2/3">
           <button
-              className="absolute top-0 right-0 m-2 text-gray-600 hover:text-gray-800 cursor-pointer
-             md:-m-2 md:rounded-full md:p-2 md:bg-white md:shadow-md"
-              onClick={onClose}
+              className="absolute top-0 right-0 m-2 text-gray-600 hover:text-gray-800 cursor-pointer md:-m-2 md:rounded-full md:p-2 md:bg-white md:shadow-md"
+              onClick={handleClose}
           >
-            <X size={24}/>
+            <X size={24} />
           </button>
           <img
               src={project.image}
@@ -105,8 +105,8 @@ function Modal({ project, onClose }: { project: any; onClose: () => void }) {
                     key={index}
                     className="px-2 py-1 bg-[var(--color-accent)] text-[var(--color-secondary)] rounded text-sm"
                 >
-                {tech}
-              </span>
+              {tech}
+            </span>
             ))}
           </div>
         </div>
@@ -117,17 +117,34 @@ function Modal({ project, onClose }: { project: any; onClose: () => void }) {
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
 
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [selectedProject]);
+
   return (
       <section id="projects" className="py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[var(--color-secondary)]">
+          <h2
+              className="text-3xl font-bold text-center mb-12 text-[var(--color-secondary)]"
+              data-aos="fade-up"
+          >
             Mes Projets
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projectsData.map((project) => (
+            {projectsData.map((project, index) => (
                 <div
                     key={project.id}
                     className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
+                    data-aos="fade-up"
+                    data-aos-delay={index * 100}
                 >
                   <img
                       src={project.image}
