@@ -81,7 +81,8 @@ function Modal({ project, onClose }: { project: any; onClose: () => void }) {
   return (
       <div className="fixed inset-0 bg-blur-sm bg-opacity-30 flex items-center justify-center z-50 backdrop-blur-sm">
         <div
-            className="bg-white rounded-lg shadow-lg max-w-lg w-full relative p-6">
+            className="bg-white rounded-lg shadow-lg relative p-6 w-11/12 lg:w-2/3"
+        >
           <button
               className="absolute top-0 right-0 m-2 text-gray-600 hover:text-gray-800 cursor-pointer
              md:-m-2 md:rounded-full md:p-2 md:bg-white md:shadow-md"
@@ -118,7 +119,7 @@ export default function Projects() {
 
   return (
       <section id="projects" className="py-20">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-[var(--color-secondary)]">
             Mes Projets
           </h2>
