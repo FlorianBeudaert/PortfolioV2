@@ -26,7 +26,7 @@ export default function SkillsSection() {
         </h2>
 
         <p
-          className="text-muted-foreground text-center text-lg mb-10"
+          className="text-gray-600 text-center mb-8 max-w-2xl mx-auto"
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -41,10 +41,10 @@ export default function SkillsSection() {
         >
           <button
             onClick={() => setActiveCategory(null)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all cursor-pointer ${
               !activeCategory
                 ? 'bg-[var(--color-primary)]/70 text-[var(--color-secondary)]'
-                : 'bg-[var(--color-neutral)] hover:bg-[var(--color-neutral)]/80'
+                : 'bg-[var(--color-neutral)] text-gray-600 hover:bg-[var(--color-neutral)]/80'
             }`}
           >
             Tout
@@ -53,10 +53,10 @@ export default function SkillsSection() {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all cursor-pointer ${
                 activeCategory === category
                   ? 'bg-[var(--color-primary)]/70 text-[var(--color-secondary)]'
-                  : 'bg-[var(--color-neutral)] hover:bg-[var(--color-neutral)]/80'
+                  : 'bg-[var(--color-neutral)] text-gray-600 hover:bg-[var(--color-neutral)]/80'
               }`}
             >
               {category}
