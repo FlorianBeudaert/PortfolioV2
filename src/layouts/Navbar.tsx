@@ -10,7 +10,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Accueil', path: '#' },
+    { name: 'Accueil', path: '#home' },
     { name: 'À propos', path: '#about' },
     { name: 'Projets', path: '#projects' },
     { name: 'Contact', path: '#contact' },
@@ -20,7 +20,7 @@ export default function Navbar() {
     <header className="w-full bg-white shadow-sm sticky top-0 z-50">
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
         <Link
-          href="/"
+          href="#home"
           className="text-2xl font-bold text-[var(--color-primary)]"
         >
           Florian Beudaert

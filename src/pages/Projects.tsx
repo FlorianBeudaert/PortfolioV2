@@ -1,73 +1,30 @@
+import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
-
-const projectsData = [
-  {
-    id: 1,
-    title: 'Projet 1',
-    description:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
-    technologies: ['Tech1', 'Tech2'],
-    image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    link: '#',
-  },
-  {
-    id: 2,
-    title: 'Projet 2',
-    description:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
-    technologies: ['Tech1', 'Tech2'],
-    image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    link: '#',
-  },
-  {
-    id: 3,
-    title: 'Projet 3',
-    description:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
-    technologies: ['Tech1', 'Tech2'],
-    image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    link: '#',
-  },
-  {
-    id: 4,
-    title: 'Projet 4',
-    description:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
-    technologies: ['Tech1', 'Tech2'],
-    image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    link: '#',
-  },
-  {
-    id: 5,
-    title: 'Projet 5',
-    description:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
-    technologies: ['Tech1', 'Tech2'],
-    image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    link: '#',
-  },
-  {
-    id: 6,
-    title: 'Projet 6',
-    description:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
-    technologies: ['Tech1', 'Tech2'],
-    image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    link: '#',
-  },
-];
+import Modal from '../components/ProjectModal';
+import projectsData from '../data/ProjectsData';
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [selectedProject]);
+
   return (
     <section id="projects" className="py-20">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-[var(--color-secondary)]">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2
+          className="text-3xl font-bold text-center mb-12 text-[var(--color-secondary)]"
+          data-aos="fade-up"
+        >
           Mes Projets
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -79,7 +36,7 @@ export default function Projects() {
               data-aos-delay={index * 100}
             >
               <img
-                src={project.image}
+                src={project.mainImage}
                 alt={`Preview of ${project.title}`}
                 className="w-full h-48 object-cover"
               />
@@ -87,7 +44,7 @@ export default function Projects() {
                 <h3 className="text-xl font-semibold mb-2 text-[var(--color-primary)]">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+                <p className="text-gray-600 mb-4">{project.shortDescription}</p>
                 <div className="flex justify-between items-center">
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, index) => (
@@ -99,23 +56,22 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                  <a
-                    href={project.link}
-                    className="text-[var(--color-primary)] hover:text-[var(--color-secondary)] transition flex items-center"
+                  <button
+                    className="text-[var(--color-primary)] hover:text-[var(--color-secondary)] transition flex items-center cursor-pointer"
+                    onClick={() => setSelectedProject(project)}
                   >
-                    Voir{' '}
-                    <ArrowRight
-                      size={24}
-                      className="text-[var(--color-primary)]"
-                    />
-                  </a>
+                    Voir <ArrowRight size={24} />
+                  </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+      <Modal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 }
-

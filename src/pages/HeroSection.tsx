@@ -1,8 +1,11 @@
 import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
 export default function HeroSection() {
   return (
-    <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 px-4 bg-gray-50 overflow-hidden">
-      {/* Bubbles */}
+    <section
+      className="relative pt-24 pb-12 md:pt-32 md:pb-20 px-4 bg-gray-100 overflow-hidden section-with-inner-shadow"
+      id="home"
+    >
+      {/* Annimation de bulle */}
       <div className="absolute inset-0">
         <div className="bubble"></div>
         <div className="bubble"></div>
@@ -10,7 +13,7 @@ export default function HeroSection() {
         <div className="bubble"></div>
         <div className="bubble"></div>
       </div>
-      {/* Content */}
+      {/* Contenu principal */}
       <div className="max-w-6xl mx-auto text-center">
         <h1
           className="text-4xl md:text-6xl font-bold text-[var(--color-secondary)] mb-6"
@@ -38,19 +41,21 @@ export default function HeroSection() {
           data-aos-delay="600"
         >
           <a
-            href="#"
+            href="https://github.com/FlorianBeudaert"
+            target={'_blank'}
             className="p-2 text-gray-600 hover:text-[var(--color-primary)] transition"
           >
             <Github size={24} />
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/florian-beudaert/"
+            target={'_blank'}
             className="p-2 text-gray-600 hover:text-[var(--color-primary)] transition"
           >
             <Linkedin size={24} />
           </a>
           <a
-            href="#"
+            href="mailto:beudaertflorian2@gmail.com"
             className="p-2 text-gray-600 hover:text-[var(--color-primary)] transition"
           >
             <Mail size={24} />
