@@ -12,17 +12,19 @@ export default function EducationsCard({ education }: EducationsCardProps) {
       data-aos="fade-up"
     >
       <div className="flex justify-between items-start mb-4">
-        <h3 className="text-2xl font-semibold text-[var(--color-primary)]">
+        <h3 className="text-xl md:text-2xl font-semibold text-[var(--color-primary)]">
           {education.title}
         </h3>
-        <p className="text-base text-gray-500">
+        <p className="text-sm md:text-base text-gray-500">
           {education.startDate} - {education.endDate}
         </p>
       </div>
-      <p className="text-gray-600 font-medium text-lg mb-2">
+      <p className="text-gray-600 font-medium text-base md:text-lg mb-2">
         {education.institution} - {education.location}
       </p>
-      <p className="text-gray-700 text-base">{education.description}</p>
+      <p className="text-gray-700 text-sm md:text-base">
+        {education.description}
+      </p>
     </div>
   );
 }
