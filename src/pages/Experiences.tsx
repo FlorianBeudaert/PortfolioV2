@@ -6,7 +6,7 @@ export default function Experiences() {
           className="text-3xl md:text-4xl font-bold text-center mb-3 text-[var(--color-secondary)]"
           data-aos="fade-up"
         >
-          Mes Formations & Expériences
+          Formations & Expériences
         </h2>
 
         <div className="flex justify-center mb-8">
@@ -15,7 +15,7 @@ export default function Experiences() {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Mes Expériences
+            Mes Formations
           </button>
         </div>
       </div>

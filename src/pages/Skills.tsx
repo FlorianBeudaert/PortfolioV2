@@ -22,7 +22,7 @@ export default function SkillsSection() {
           className="text-3xl md:text-4xl font-bold text-center mb-3 text-[var(--color-secondary)]"
           data-aos="fade-up"
         >
-          Mes Compétences
+          Compétences
         </h2>
 
         <p
