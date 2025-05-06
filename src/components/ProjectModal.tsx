@@ -59,7 +59,10 @@ export default function Modal({ project, onClose }: ModalProps) {
                 src={image}
                 alt={`Project ${project.title} - Image ${index + 1}`}
                 className={`w-auto max-w-full h-auto object-cover rounded-md mx-auto justify-self-center ${
-                  project.images.length % 2 !== 0 && index === project.images.length - 1 ? 'md:col-span-2' : ''
+                  project.images.length % 2 !== 0 &&
+                  index === project.images.length - 1
+                    ? 'md:col-span-2'
+                    : ''
                 }`}
               />
             ))}

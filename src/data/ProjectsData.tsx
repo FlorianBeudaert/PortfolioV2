@@ -57,10 +57,7 @@ const projectsData = [
     technologies: ['Tech1', 'Tech2'],
     mainImage:
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    images: [
-      'https://placehold.co/600x400',
-      'https://placehold.co/600x400',
-    ],
+    images: ['https://placehold.co/600x400', 'https://placehold.co/600x400'],
   },
   {
     id: 5,
@@ -72,10 +69,7 @@ const projectsData = [
     technologies: ['Tech1', 'Tech2'],
     mainImage:
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    images: [
-      'https://placehold.co/600x400',
-      'https://placehold.co/600x400',
-    ],
+    images: ['https://placehold.co/600x400', 'https://placehold.co/600x400'],
   },
   {
     id: 6,
@@ -87,10 +81,8 @@ const projectsData = [
     technologies: ['Tech1', 'Tech2'],
     mainImage:
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    images: [
-      'https://placehold.co/600x400',
-    ],
+    images: ['https://placehold.co/600x400'],
   },
-]
+];
 
 export default projectsData;
