@@ -1,3 +1,6 @@
+import { educationData } from '@/data/EducationsData';
+import EducationsCard from '@/components/EducationsCard';
+
 export default function Experiences() {
   return (
     <section id="experiences" className="py-16 px-4 md:px-6 lg:px-8">
@@ -9,16 +12,33 @@ export default function Experiences() {
           Formations & Expériences
         </h2>
 
-        <div className="flex justify-center mb-8">
-          <button
+        <div className="flex flex-wrap justify-center gap-2 mt-10 mb-4">
+          <p
             className="bg-[var(--color-neutral)] text-gray-600 px-4 py-2 rounded-full text-sm font-medium"
             data-aos="fade-up"
             data-aos-delay="200"
           >
             Mes Formations
-          </button>
+          </p>
+        </div>
+        <p
+          className="text-gray-600 text-center mb-8 max-w-2xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Voici un aperçu de mes formations que j'ai suivies jusqu'à présent.
+        </p>
+        <div
+          className="grid grid-cols-1 gap-6"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          {educationData.map((education) => (
+            <EducationsCard key={education.title} education={education} />
+          ))}
         </div>
       </div>
     </section>
-  );
+  )
+    ;
 }
