@@ -1,6 +1,6 @@
 'use client';
-import { Skill } from '@/data/SkillsData';
 import Image from 'next/image';
+import { Skill } from '@/types/Skill';
 
 interface SkillCardProps {
   skill: Skill;
@@ -40,4 +40,3 @@ export default function SkillCard({ skill }: SkillCardProps) {
     </div>
   );
 }
-

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Skill } from '@/types/Skill'; // Updated import
+import { Skill } from '@/types/Skill';
 import SkillCard from '@/components/SkillCard';
 import { skillsData } from '@/data/SkillsData';
 

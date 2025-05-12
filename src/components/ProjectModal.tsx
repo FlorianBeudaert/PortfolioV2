@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
 import Image from 'next/image';
-import { Project } from '../types/Project'; // Import shared interface
+import { Project } from '@/types/Project';
 
 interface ModalProps {
   project: Project | null;
@@ -78,4 +78,3 @@ export default function Modal({ project, onClose }: ModalProps) {
     </div>
   );
 }
-

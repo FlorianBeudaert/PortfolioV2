@@ -1,4 +1,6 @@
-const projectsData = [
+import { Project } from '@/types/Project';
+
+const projectsData: Project[] = [
   {
     id: 1,
     title: 'Projet 1',
