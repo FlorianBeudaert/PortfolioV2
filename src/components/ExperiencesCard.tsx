@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { ExperiencesData } from '@/data/ExperiencesData';
 
 interface ExperiencesCardProps {
@@ -13,9 +14,11 @@ export default function ExperiencesCard({ experience }: ExperiencesCardProps) {
     >
       {experience.icon && (
         <div className="hidden md:block w-60 h-60 flex-shrink-0">
-          <img
+          <Image
             src={experience.icon}
             alt={`${experience.company} logo`}
+            width={240}
+            height={240}
             className="w-full h-full object-contain"
           />
         </div>
