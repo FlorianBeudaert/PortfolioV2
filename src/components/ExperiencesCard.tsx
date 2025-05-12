@@ -40,7 +40,7 @@ export default function ExperiencesCard({ experience }: ExperiencesCardProps) {
           {experience.technologies.map((tech) => (
             <span
               key={tech}
-              className="bg-[var(--color-neutral)] text-gray-600 px-2 py-1 rounded text-xs md:text-sm"
+              className="bg-[var(--color-accent)] text-[var(--color-secondary)] px-2 py-1 rounded text-xs md:text-sm"
             >
               {tech}
             </span>
