@@ -1,16 +1,6 @@
-export interface ExperiencesData
-  {
-  title: string;
-  company: string;
-  location: string;
-  startDate: string;
-  endDate: string;
-  description: string;
-  technologies: string[];
-  icon?: string;
-}
+import { Experience } from '@/types/Experience';
 
-export const experiencesData: ExperiencesData[] = [
+export const experiencesData: Experience[] = [
   {
     title: 'Alternant Développeur Web',
     company: 'Dupont Restauration',
