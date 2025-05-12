@@ -14,11 +14,10 @@ export default function Navbar() {
     { name: 'Formations & Expériences', path: '#experiences' },
     { name: 'Compétences', path: '#skills' },
     { name: 'Projets', path: '#projects' },
-    { name: 'Contact', path: '#contact' },
   ];
 
   return (
-    <header className="w-full bg-white shadow-sm sticky top-0 z-50">
+    <header className="w-full bg-white shadow-sm fixed top-0 z-50">
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
         <Link
           href="#home"
