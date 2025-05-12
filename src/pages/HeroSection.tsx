@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
+
 export default function HeroSection() {
   return (
     <section
@@ -61,9 +62,19 @@ export default function HeroSection() {
             <Mail size={24} />
           </a>
         </div>
+        {/* Bouton pour télécharger le CV */}
+        <div data-aos="fade-up" data-aos-delay="700">
+          <a
+            href="/pdf/CV_Beudaert_Florian.pdf"
+            download
+            className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-[var(--color-secondary)] transition"
+          >
+            Télécharger mon CV
+          </a>
+        </div>
         <a
-          href="#projects"
-          className="animate-bounce inline-block"
+          href="#experiences"
+          className="animate-bounce inline-block mt-8"
           data-aos="fade-up"
           data-aos-delay="800"
         >

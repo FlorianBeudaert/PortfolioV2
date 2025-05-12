@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Modal from '../components/ProjectModal';
 import projectsData from '../data/ProjectsData';
+import { Project } from '../types/Project'; // Import shared interface
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
     if (selectedProject) {
@@ -25,19 +27,21 @@ export default function Projects() {
           className="text-3xl font-bold text-center mb-12 text-[var(--color-secondary)]"
           data-aos="fade-up"
         >
-          Mes Projets
+          Projets
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsData.map((project, index) => (
+          {projectsData.map((project: Project, index: number) => (
             <div
               key={project.id}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <img
+              <Image
                 src={project.mainImage}
                 alt={`Preview of ${project.title}`}
+                width={600}
+                height={400}
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">

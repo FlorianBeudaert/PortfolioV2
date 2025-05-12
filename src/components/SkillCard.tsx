@@ -1,5 +1,6 @@
 'use client';
 import { Skill } from '@/data/SkillsData';
+import Image from 'next/image';
 
 interface SkillCardProps {
   skill: Skill;
@@ -11,10 +12,12 @@ export default function SkillCard({ skill }: SkillCardProps) {
     <div className="flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-md transition-transform transform hover:scale-105 border border-[var(--color-neutral)]">
       <div className="w-16 h-16 mb-4 flex items-center justify-center">
         {skill.customIcon ? (
-          <img
+          <Image
             src={skill.customIcon}
             alt={`${skill.name} Icon`}
-            className="w-full h-full object-contain"
+            width={100}
+            height={100}
+            className="w-16 h-16"
           />
         ) : skill.icon ? (
           <svg
@@ -37,3 +40,4 @@ export default function SkillCard({ skill }: SkillCardProps) {
     </div>
   );
 }
+

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Skill } from '@/types/Skill'; // Updated import
 import SkillCard from '@/components/SkillCard';
 import { skillsData } from '@/data/SkillsData';
 
@@ -8,11 +9,11 @@ export default function SkillsSection() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const categories = Array.from(
-    new Set(skillsData.map((skill) => skill.category))
+    new Set(skillsData.map((skill: Skill) => skill.category))
   );
 
   const filteredSkills = activeCategory
-    ? skillsData.filter((skill) => skill.category === activeCategory)
+    ? skillsData.filter((skill: Skill) => skill.category === activeCategory)
     : skillsData;
 
   return (
@@ -22,16 +23,16 @@ export default function SkillsSection() {
           className="text-3xl md:text-4xl font-bold text-center mb-3 text-[var(--color-secondary)]"
           data-aos="fade-up"
         >
-          Mes Compétences
+          Compétences
         </h2>
 
         <p
-          className="text-muted-foreground text-center text-lg mb-10"
+          className="text-gray-600 text-center mb-8 max-w-2xl mx-auto"
           data-aos="fade-up"
           data-aos-delay="200"
         >
           Voici un aperçu de mes compétences techniques. Je suis toujours en
-          train d'apprendre et d'explorer de nouvelles technologies.
+          train d&apos;apprendre et d&apos;explorer de nouvelles technologies.
         </p>
 
         <div
@@ -41,10 +42,10 @@ export default function SkillsSection() {
         >
           <button
             onClick={() => setActiveCategory(null)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all cursor-pointer ${
               !activeCategory
                 ? 'bg-[var(--color-primary)]/70 text-[var(--color-secondary)]'
-                : 'bg-[var(--color-neutral)] hover:bg-[var(--color-neutral)]/80'
+                : 'bg-[var(--color-neutral)] text-gray-600 hover:bg-[var(--color-neutral)]/80'
             }`}
           >
             Tout
@@ -53,10 +54,10 @@ export default function SkillsSection() {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all cursor-pointer ${
                 activeCategory === category
                   ? 'bg-[var(--color-primary)]/70 text-[var(--color-secondary)]'
-                  : 'bg-[var(--color-neutral)] hover:bg-[var(--color-neutral)]/80'
+                  : 'bg-[var(--color-neutral)] text-gray-600 hover:bg-[var(--color-neutral)]/80'
               }`}
             >
               {category}
@@ -69,7 +70,7 @@ export default function SkillsSection() {
           data-aos="fade-up"
           data-aos-delay="600"
         >
-          {filteredSkills.map((skill, index) => (
+          {filteredSkills.map((skill: Skill, index) => (
             <SkillCard key={skill.name} skill={skill} index={index} />
           ))}
         </div>
