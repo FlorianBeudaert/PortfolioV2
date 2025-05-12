@@ -1,14 +1,7 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
 import Image from 'next/image';
-
-interface Project {
-  mainImage: string;
-  title: string;
-  detailedDescription: string;
-  technologies: string[];
-  images: string[];
-}
+import { Project } from '../types/Project'; // Import shared interface
 
 interface ModalProps {
   project: Project | null;

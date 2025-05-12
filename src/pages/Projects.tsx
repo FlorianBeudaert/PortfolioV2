@@ -3,14 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Modal from '../components/ProjectModal';
 import projectsData from '../data/ProjectsData';
-
-interface Project {
-  id: string;
-  mainImage: string;
-  title: string;
-  shortDescription: string;
-  technologies: string[];
-}
+import { Project } from '../types/Project'; // Import shared interface
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -37,7 +30,7 @@ export default function Projects() {
           Projets
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsData.map((project, index) => (
+          {projectsData.map((project: Project, index: number) => (
             <div
               key={project.id}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
@@ -86,4 +79,3 @@ export default function Projects() {
     </section>
   );
 }
-

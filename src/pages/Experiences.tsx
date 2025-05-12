@@ -28,7 +28,7 @@ export default function Experiences() {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          Voici un aperçu de mes formations que j'ai suivies jusqu'à présent.
+          Voici un aperçu de mes formations que j&apos;ai suivies jusqu&apos;à présent.
         </p>
         <div
           className="grid grid-cols-1 gap-6"
@@ -53,8 +53,8 @@ export default function Experiences() {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          Voici un aperçu de mes expériences professionnelles que j'ai
-          acquises jusqu'à présent.
+          Voici un aperçu de mes expériences professionnelles que j&apos;ai
+          acquises jusqu&apos;à présent.
         </p>
         <div
           className="grid grid-cols-1 gap-6"
@@ -72,3 +72,4 @@ export default function Experiences() {
     </section>
   );
 }
+
