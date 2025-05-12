@@ -89,7 +89,7 @@ export const skillsData: Skill[] = [
     icon: '',
     hex: '',
     category: 'Backend',
-    customIcon: '/icons/java.svg',
+    customIcon: '/assets/icons/java.svg',
   },
 
   // Base de données
