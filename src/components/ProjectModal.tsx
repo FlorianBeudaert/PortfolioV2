@@ -1,8 +1,17 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
+import Image from 'next/image';
+
+interface Project {
+  mainImage: string;
+  title: string;
+  detailedDescription: string;
+  technologies: string[];
+  images: string[];
+}
 
 interface ModalProps {
-  project: any;
+  project: Project | null;
   onClose: () => void;
 }
 
@@ -32,9 +41,11 @@ export default function Modal({ project, onClose }: ModalProps) {
         >
           <X size={24} />
         </button>
-        <img
+        <Image
           src={project.mainImage}
           alt={project.title}
+          width={800}
+          height={400}
           className="w-full h-48 object-cover rounded-md mb-4 mt-2"
         />
         <div className="overflow-y-auto max-h-[50vh]">
@@ -54,10 +65,12 @@ export default function Modal({ project, onClose }: ModalProps) {
           </div>
           <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
             {project.images.map((image: string, index: number) => (
-              <img
+              <Image
                 key={index}
                 src={image}
                 alt={`Project ${project.title} - Image ${index + 1}`}
+                width={500}
+                height={300}
                 className={`w-auto max-w-full h-auto object-cover rounded-md mx-auto justify-self-center ${
                   project.images.length % 2 !== 0 &&
                   index === project.images.length - 1
@@ -72,3 +85,4 @@ export default function Modal({ project, onClose }: ModalProps) {
     </div>
   );
 }
+

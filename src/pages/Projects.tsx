@@ -1,10 +1,19 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Modal from '../components/ProjectModal';
 import projectsData from '../data/ProjectsData';
 
+interface Project {
+  id: string;
+  mainImage: string;
+  title: string;
+  shortDescription: string;
+  technologies: string[];
+}
+
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
     if (selectedProject) {
@@ -35,9 +44,11 @@ export default function Projects() {
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <img
+              <Image
                 src={project.mainImage}
                 alt={`Preview of ${project.title}`}
+                width={600}
+                height={400}
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
@@ -75,3 +86,4 @@ export default function Projects() {
     </section>
   );
 }
+
