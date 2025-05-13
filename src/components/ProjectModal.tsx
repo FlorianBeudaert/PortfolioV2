@@ -81,24 +81,24 @@ export default function ProjectModal({ project, onClose }: ModalProps) {
       aria-labelledby="project-modal-title"
     >
       <div
-        className={`bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden transition-all duration-300 ${
+        className={`bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden transition-all duration-300 ${
           isExiting ? 'scale-95' : 'scale-100'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md hover:bg-white dark:hover:bg-gray-800 transition-colors duration-200"
+          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 shadow-md hover:bg-gray-200 transition-transform duration-200 cursor-pointer"
           onClick={handleClose}
           aria-label="Close modal"
         >
-          <X size={20} className="text-gray-700 dark:text-gray-300" />
+          <X size={20} className="text-gray-700" />
         </button>
 
         <div className="flex flex-col md:flex-row h-full max-h-[90vh]">
-          <div className="relative w-full md:w-3/5 h-[40vh] md:h-[90vh] bg-gray-100 dark:bg-gray-800">
+          <div className="relative w-full md:w-3/5 h-[40vh] md:h-[90vh] bg-gray-100">
             <div className="relative h-full w-full">
               {isLoading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
                   <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
                 </div>
               )}
@@ -116,24 +116,18 @@ export default function ProjectModal({ project, onClose }: ModalProps) {
             {project.images.length > 1 && (
               <>
                 <button
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md hover:bg-white dark:hover:bg-gray-800 transition-colors"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-md hover:bg-gray-200 transition-transform duration-200 cursor-pointer"
                   onClick={handlePrevImage}
                   aria-label="Previous image"
                 >
-                  <ChevronLeft
-                    size={24}
-                    className="text-gray-700 dark:text-gray-300"
-                  />
+                  <ChevronLeft size={24} className="text-gray-700" />
                 </button>
                 <button
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md hover:bg-white dark:hover:bg-gray-800 transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-md hover:bg-gray-200 transition-transform duration-200 cursor-pointer"
                   onClick={handleNextImage}
                   aria-label="Next image"
                 >
-                  <ChevronRight
-                    size={24}
-                    className="text-gray-700 dark:text-gray-300"
-                  />
+                  <ChevronRight size={24} className="text-gray-700" />
                 </button>
               </>
             )}
@@ -158,8 +152,8 @@ export default function ProjectModal({ project, onClose }: ModalProps) {
               ))}
             </div>
 
-            <div className="prose prose-sm dark:prose-invert max-w-none mb-6">
-              <p className="text-gray-800 dark:text-gray-200 whitespace-pre-line">
+            <div className="prose prose-sm max-w-none mb-6">
+              <p className="text-gray-800 whitespace-pre-line">
                 {project.detailedDescription}
               </p>
             </div>

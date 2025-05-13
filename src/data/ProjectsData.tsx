@@ -18,18 +18,19 @@ const projectsData: Project[] = [
   },
   {
     id: 2,
-    title: 'Projet 2',
+    title: 'Téléscord',
     shortDescription:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+      "Projet de fin de formation (2ème année Web@cademie) inspiré de Discord, avec une fonctionnalité principale d'appel en temps réel.",
     detailedDescription:
-      'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
-    technologies: ['Tech1', 'Tech2'],
-    mainImage:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+      'Ce projet a été réalisé en groupe de 2 personnes dans le cadre de la fin de formation. Nous avons décidé de créer une application inspirée de Discord, avec comme fonctionnalité principale les appels en temps réel. Les autres fonctionnalités incluent la messagerie en temps réel et sauvegardée, la création de salons communautaires, ainsi que la gestion des amis avec des messages et appels privés.',
+    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
+    mainImage: '/assets/projects/telescord/logo.webp',
     images: [
-      'https://placehold.co/600x400',
-      'https://placehold.co/600x400',
-      'https://placehold.co/600x400',
+      '/assets/projects/telescord/grouplist.webp',
+      '/assets/projects/telescord/groupview.webp',
+      '/assets/projects/telescord/friendlist.webp',
+      '/assets/projects/telescord/friends.webp',
+      '/assets/projects/telescord/friendmessages.webp',
     ],
   },
   {
