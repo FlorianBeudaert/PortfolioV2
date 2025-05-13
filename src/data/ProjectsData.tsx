@@ -37,9 +37,9 @@ const projectsData: Project[] = [
     id: 3,
     title: 'MyRPG',
     shortDescription:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+      'MyRPG est un projet RPG sous forme de question et de combat, développé en Ruby on Rails.',
     detailedDescription:
-      'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
+      "MyRPG est un jeu RPG interactif basé sur des questions et des combats. Les joueurs progressent en répondant à des questions et en affrontant des ennemis. Le jeu intègre un système d'objets avec des statistiques personnalisées, un mécanisme de montée en niveau pour améliorer les compétences des personnages, ainsi qu'une interface administrateur complète permettant d'ajouter ou de supprimer des quêtes et des questions. Bien que le visuel n'ai pas été la priorité, le projet met en avant les fonctionnalités demandées par le sujet.",
     technologies: ['Ruby', 'Rails', 'PostgreSQL'],
     mainImage: '/assets/projects/myrpg/logo.webp',
     images: [
