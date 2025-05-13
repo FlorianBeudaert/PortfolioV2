@@ -12,6 +12,11 @@ export default function ProjectModal({ project, onClose }: ModalProps) {
   const [isExiting, setIsExiting] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  const toggleZoom = () => {
+    setIsZoomed((prev) => !prev);
+  };
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -96,19 +101,26 @@ export default function ProjectModal({ project, onClose }: ModalProps) {
 
         <div className="flex flex-col md:flex-row h-full max-h-[90vh]">
           <div className="relative w-full md:w-3/5 h-[40vh] md:h-[90vh] bg-gray-100">
-            <div className="relative h-full w-full">
+            <div
+              className={`${
+                isZoomed
+                  ? 'fixed inset-0 z-50 flex items-center justify-center bg-black/80'
+                  : 'relative h-full w-full cursor-zoom-in'
+              }`}
+              onClick={toggleZoom}
+            >
               {isLoading && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                  <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-10 h-10 border-4 border-[var(--color-primary)] border-t-transparent rounded-full animate-spin"></div>
                 </div>
               )}
               <Image
                 src={project.images[currentImageIndex]}
                 alt={`${project.title} - screenshot ${currentImageIndex + 1}`}
                 fill
-                className={`object-contain transition-opacity duration-300 ${
+                className={`object-contain transition-transform duration-300 ${
                   isLoading ? 'opacity-0' : 'opacity-100'
-                }`}
+                } ${isZoomed} scale-100`}
                 onLoad={handleImageLoad}
               />
             </div>
@@ -145,7 +157,7 @@ export default function ProjectModal({ project, onClose }: ModalProps) {
               {project.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-secondary)] rounded-full text-sm font-medium"
+                  className="px-2 py-1 bg-[var(--color-accent)] text-[var(--color-secondary)] rounded text-sm"
                 >
                   {tech}
                 </span>

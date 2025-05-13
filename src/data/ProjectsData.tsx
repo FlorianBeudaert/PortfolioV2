@@ -3,22 +3,7 @@ import { Project } from '@/types/Project';
 const projectsData: Project[] = [
   {
     id: 1,
-    title: 'Trefllo',
-    shortDescription:
-      'Trefllo est une application de gestion de tâches inspirée de Trello, développée durant un projet en groupe de formation.',
-    detailedDescription:
-      "Ce projet a été realiser en groupe de 3 personnes dans le cadre de ma formation. L'objectif était de créer une application mobile de gestion de tâches inspirée de Trello via sont API. L'application permet de créer des tableaux, d'ajouter des taches, assigner des utilisateurs.",
-    technologies: ['React Native'],
-    mainImage: '/assets/projects/trefllo/home.webp',
-    images: [
-      '/assets/projects/trefllo/drawer.webp',
-      '/assets/projects/trefllo/board.webp',
-      '/assets/projects/trefllo/task.webp',
-    ],
-  },
-  {
-    id: 2,
-    title: 'Téléscord',
+    title: 'Telescord',
     shortDescription:
       "Projet de fin de formation (2ème année Web@cademie) inspiré de Discord, avec une fonctionnalité principale d'appel en temps réel.",
     detailedDescription:
@@ -34,59 +19,66 @@ const projectsData: Project[] = [
     ],
   },
   {
+    id: 2,
+    title: 'Trefllo',
+    shortDescription:
+      'Trefllo est une application de gestion de tâches inspirée de Trello, développée durant un projet en groupe de formation.',
+    detailedDescription:
+      "Ce projet a été realiser en groupe de 3 personnes dans le cadre de ma formation. L'objectif était de créer une application mobile de gestion de tâches inspirée de Trello via sont API. L'application permet de créer des tableaux, d'ajouter des taches, assigner des utilisateurs.",
+    technologies: ['React Native'],
+    mainImage: '/assets/projects/trefllo/home.webp',
+    images: [
+      '/assets/projects/trefllo/drawer.webp',
+      '/assets/projects/trefllo/board.webp',
+      '/assets/projects/trefllo/task.webp',
+    ],
+  },
+  {
     id: 3,
-    title: 'Projet 3',
+    title: 'MyRPG',
     shortDescription:
       'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
     detailedDescription:
       'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
-    technologies: ['Tech1', 'Tech2'],
-    mainImage:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+    technologies: ['Ruby', 'Rails', 'PostgreSQL'],
+    mainImage: '/assets/projects/myrpg/logo.webp',
     images: [
-      'https://placehold.co/600x400',
-      'https://placehold.co/600x400',
-      'https://placehold.co/600x400',
-      'https://placehold.co/600x400',
-      'https://placehold.co/600x400',
-      'https://placehold.co/600x400',
+      '/assets/projects/myrpg/choicequest.webp',
+      '/assets/projects/myrpg/questwalk.webp',
+      '/assets/projects/myrpg/questionquest.webp',
+      '/assets/projects/myrpg/fightquest.webp',
+      '/assets/projects/myrpg/reward.webp',
+      '/assets/projects/myrpg/profile.webp',
+      '/assets/projects/myrpg/createquest.webp',
+      '/assets/projects/myrpg/createquestion.webp',
     ],
   },
   {
     id: 4,
-    title: 'Projet 4',
+    title: 'My Marvin',
     shortDescription:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+      'My Marvin est un projet DevOps basé sur Jenkins, visant à automatiser la configuration complète d’une instance Jenkins via des fichiers de configuration YAML et Groovy.',
     detailedDescription:
-      'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
-    technologies: ['Tech1', 'Tech2'],
-    mainImage:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    images: ['https://placehold.co/600x400', 'https://placehold.co/600x400'],
+      'My Marvin est un projet DevOps réalisé dans le cadre de la formation Epitech. Il consiste à configurer entièrement une instance Jenkins en utilisant Configuration as Code (JCasC) et le Job DSL, le tout automatisé via des fichiers YAML et Groovy. L’objectif principal est de créer une plateforme Jenkins, en respectant des critères de configuration : création d’utilisateurs avec rôles spécifiques, désactivation des inscriptions, création de jobs dans des dossiers, et automatisation des builds via des scripts make. Le projet met en avant les bonnes pratiques DevOps comme l’infrastructure as code, la sécurité via variables d’environnement et la modularité des scripts.',
+    technologies: ['Jenkins', 'Docker'],
+    mainImage: '/assets/projects/mymarvin/logo.webp',
+    images: [
+      '/assets/projects/mymarvin/home.webp',
+      '/assets/projects/mymarvin/tools.webp',
+      '/assets/projects/mymarvin/seed.webp',
+      '/assets/projects/mymarvin/clone.webp',
+    ],
   },
   {
     id: 5,
-    title: 'Projet 5',
+    title: 'Torio',
     shortDescription:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+      "Torio est un projet personnel que j'ai commencer en parallele de mes études. Le but est de créer un site de gestion de projet et de calendrier.",
     detailedDescription:
-      'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
-    technologies: ['Tech1', 'Tech2'],
-    mainImage:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    images: ['https://placehold.co/600x400', 'https://placehold.co/600x400'],
-  },
-  {
-    id: 6,
-    title: 'Projet 6',
-    shortDescription:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
-    detailedDescription:
-      'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
-    technologies: ['Tech1', 'Tech2'],
-    mainImage:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
-    images: ['https://placehold.co/600x400'],
+      "Torio est un projet personnel que j'ai entrepris en parallèle de mes études. L'objectif principal est de développer une plateforme de gestion du temps combinant un calendrier interactif et des outils de gestion de projet. Ce site vise à aider les utilisateurs à organiser leurs tâches, planifier leurs événements et collaborer efficacement grâce à une interface intuitive.",
+    technologies: ['React', 'Node.js', 'MongoDB'],
+    mainImage: '/assets/projects/torio/logo.webp',
+    images: ['/assets/projects/torio/home.webp'],
   },
 ];
 
