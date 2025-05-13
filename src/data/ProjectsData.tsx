@@ -3,18 +3,17 @@ import { Project } from '@/types/Project';
 const projectsData: Project[] = [
   {
     id: 1,
-    title: 'Projet 1',
+    title: 'Trefllo',
     shortDescription:
-      'Description du projet avec les technologies utilisées et les fonctionnalités principales.',
+      'Trefllo est une application de gestion de tâches inspirée de Trello, développée durant un projet en groupe de formation.',
     detailedDescription:
-      'Voici une description plus détaillée du projet, expliquant les objectifs, les défis rencontrés et les solutions apportées.',
-    technologies: ['Tech1', 'Tech2'],
-    mainImage:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
+      "Ce projet a été realiser en groupe de 3 personnes dans le cadre de ma formation. L'objectif était de créer une application mobile de gestion de tâches inspirée de Trello via sont API. L'application permet de créer des tableaux, d'ajouter des taches, assigner des utilisateurs.",
+    technologies: ['React Native'],
+    mainImage: '/assets/projects/trefllo/home.webp',
     images: [
-      'https://placehold.co/600x400',
-      'https://placehold.co/600x400',
-      'https://placehold.co/600x400',
+      '/assets/projects/trefllo/drawer.webp',
+      '/assets/projects/trefllo/board.webp',
+      '/assets/projects/trefllo/task.webp',
     ],
   },
   {
@@ -44,6 +43,9 @@ const projectsData: Project[] = [
     mainImage:
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60',
     images: [
+      'https://placehold.co/600x400',
+      'https://placehold.co/600x400',
+      'https://placehold.co/600x400',
       'https://placehold.co/600x400',
       'https://placehold.co/600x400',
       'https://placehold.co/600x400',

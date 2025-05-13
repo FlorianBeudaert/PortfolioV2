@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { X } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { Project } from '@/types/Project';
 
@@ -8,8 +8,37 @@ interface ModalProps {
   onClose: () => void;
 }
 
-export default function Modal({ project, onClose }: ModalProps) {
+export default function ProjectModal({ project, onClose }: ModalProps) {
   const [isExiting, setIsExiting] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (!project) return;
+
+      if (e.key === 'Escape') {
+        handleClose();
+      } else if (e.key === 'ArrowRight') {
+        handleNextImage();
+      } else if (e.key === 'ArrowLeft') {
+        handlePrevImage();
+      }
+    },
+    [project, currentImageIndex]
+  );
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
+
+  useEffect(() => {
+    setCurrentImageIndex(0);
+    setIsLoading(true);
+  }, [project]);
 
   const handleClose = () => {
     setIsExiting(true);
@@ -19,59 +48,121 @@ export default function Modal({ project, onClose }: ModalProps) {
     }, 300);
   };
 
+  const handleNextImage = () => {
+    if (!project) return;
+    setIsLoading(true);
+    setCurrentImageIndex((prev) =>
+      prev === project.images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const handlePrevImage = () => {
+    if (!project) return;
+    setIsLoading(true);
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? project.images.length - 1 : prev - 1
+    );
+  };
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  };
+
   if (!project) return null;
 
   return (
     <div
-      className={`fixed inset-0 bg-blur-sm bg-opacity-30 flex items-center justify-center z-50 backdrop-blur-sm modal ${
-        isExiting ? 'modal-exit' : 'modal-enter'
+      className={`fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/50 backdrop-blur-sm p-4 sm:p-6 transition-opacity duration-300 ${
+        isExiting ? 'opacity-0' : 'opacity-100'
       }`}
+      onClick={handleClose}
+      aria-modal="true"
+      role="dialog"
+      aria-labelledby="project-modal-title"
     >
-      <div className="bg-white rounded-lg shadow-lg relative p-6 w-11/12 lg:w-2/3">
+      <div
+        className={`bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden transition-all duration-300 ${
+          isExiting ? 'scale-95' : 'scale-100'
+        }`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
-          className="absolute top-0 right-0 m-2 text-gray-600 hover:text-gray-800 cursor-pointer md:-m-2 md:rounded-full md:p-2 md:bg-white md:shadow-md"
+          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md hover:bg-white dark:hover:bg-gray-800 transition-colors duration-200"
           onClick={handleClose}
+          aria-label="Close modal"
         >
-          <X size={24} />
+          <X size={20} className="text-gray-700 dark:text-gray-300" />
         </button>
-        <Image
-          src={project.mainImage}
-          alt={project.title}
-          width={800}
-          height={400}
-          className="w-full h-48 object-cover rounded-md mb-4 mt-2"
-        />
-        <div className="overflow-y-auto max-h-[50vh]">
-          <h3 className="text-2xl font-bold text-[var(--color-primary)]">
-            {project.title}
-          </h3>
-          <p className="text-gray-600 mb-4">{project.detailedDescription}</p>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.technologies.map((tech: string, index: number) => (
-              <span
-                key={index}
-                className="px-2 py-1 bg-[var(--color-accent)] text-[var(--color-secondary)] rounded text-sm"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
-            {project.images.map((image: string, index: number) => (
+
+        <div className="flex flex-col md:flex-row h-full max-h-[90vh]">
+          <div className="relative w-full md:w-3/5 h-[40vh] md:h-[90vh] bg-gray-100 dark:bg-gray-800">
+            <div className="relative h-full w-full">
+              {isLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+                  <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              )}
               <Image
-                key={index}
-                src={image}
-                alt={`Project ${project.title} - Image ${index + 1}`}
-                width={500}
-                height={300}
-                className={`w-auto max-w-full h-auto object-cover rounded-md mx-auto justify-self-center ${
-                  project.images.length % 2 !== 0 &&
-                  index === project.images.length - 1
-                    ? 'md:col-span-2'
-                    : ''
+                src={project.images[currentImageIndex]}
+                alt={`${project.title} - screenshot ${currentImageIndex + 1}`}
+                fill
+                className={`object-contain transition-opacity duration-300 ${
+                  isLoading ? 'opacity-0' : 'opacity-100'
                 }`}
+                onLoad={handleImageLoad}
               />
-            ))}
+            </div>
+
+            {project.images.length > 1 && (
+              <>
+                <button
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md hover:bg-white dark:hover:bg-gray-800 transition-colors"
+                  onClick={handlePrevImage}
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft
+                    size={24}
+                    className="text-gray-700 dark:text-gray-300"
+                  />
+                </button>
+                <button
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md hover:bg-white dark:hover:bg-gray-800 transition-colors"
+                  onClick={handleNextImage}
+                  aria-label="Next image"
+                >
+                  <ChevronRight
+                    size={24}
+                    className="text-gray-700 dark:text-gray-300"
+                  />
+                </button>
+              </>
+            )}
+          </div>
+
+          <div className="w-full md:w-2/5 p-6 overflow-y-auto max-h-[50vh] md:max-h-[90vh]">
+            <h2
+              id="project-modal-title"
+              className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4"
+            >
+              {project.title}
+            </h2>
+
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.technologies.map((tech, index) => (
+                <span
+                  key={index}
+                  className="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-secondary)] rounded-full text-sm font-medium"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div className="prose prose-sm dark:prose-invert max-w-none mb-6">
+              <p className="text-gray-800 dark:text-gray-200 whitespace-pre-line">
+                {project.detailedDescription}
+              </p>
+            </div>
           </div>
         </div>
       </div>
