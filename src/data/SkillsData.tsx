@@ -1,3 +1,5 @@
+import { Skill } from '@/types/Skill';
+
 import {
   siJavascript,
   siTypescript,
@@ -17,14 +19,6 @@ import {
   siJetbrains,
   siFigma,
 } from 'simple-icons/icons';
-
-export interface Skill {
-  name: string;
-  icon: string;
-  hex: string;
-  category: string;
-  customIcon?: string;
-}
 
 export const skillsData: Skill[] = [
   // Frontend
@@ -95,7 +89,7 @@ export const skillsData: Skill[] = [
     icon: '',
     hex: '',
     category: 'Backend',
-    customIcon: '/icons/java.svg',
+    customIcon: '/assets/icons/java.svg',
   },
 
   // Base de données

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import Modal from '../components/ProjectModal';
-import projectsData from '../data/ProjectsData';
-import { Project } from '../types/Project'; // Import shared interface
+import Modal from '@/components/ProjectModal';
+import projectsData from '@/data/ProjectsData';
+import { Project } from '@/types/Project';
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);

@@ -1,8 +1,9 @@
 import React from 'react';
-import { EducationsData } from '@/data/EducationsData';
+import { Education } from '@/types/Education';
 
 interface EducationsCardProps {
-  education: EducationsData;
+  education: Education;
+  key?: React.Key;
 }
 
 export default function EducationsCard({ education }: EducationsCardProps) {

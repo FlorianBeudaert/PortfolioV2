@@ -1,9 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-import { ExperiencesData } from '@/data/ExperiencesData';
+import { Experience } from '@/types/Experience';
 
 interface ExperiencesCardProps {
-  experience: ExperiencesData;
+  experience: Experience;
+  key?: React.Key;
 }
 
 export default function ExperiencesCard({ experience }: ExperiencesCardProps) {

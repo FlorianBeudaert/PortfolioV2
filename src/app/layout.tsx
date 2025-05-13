@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '../layouts/Navbar';
 import Footer from '../layouts/Footer';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -20,24 +22,26 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar />
-        <div className="flex flex-col min-h-screen">
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
-      </body>
+    <head>
+      <link rel="icon" href="/favicon.ico" />
+    </head>
+    <body
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    >
+    <Navbar />
+    <Analytics />
+    <SpeedInsights/>
+    <div className="flex flex-col min-h-screen">
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
+    </body>
     </html>
   );
 }
