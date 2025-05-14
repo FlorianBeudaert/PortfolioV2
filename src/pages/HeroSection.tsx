@@ -65,7 +65,7 @@ export default function HeroSection() {
         {/* Bouton pour télécharger le CV */}
         <div data-aos="fade-up" data-aos-delay="700">
           <a
-            href="/pdf/CV_Beudaert_Florian.pdf"
+            href="/assets/pdf/CV_Beudaert_Florian.pdf"
             download
             className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-[var(--color-secondary)] transition"
           >
