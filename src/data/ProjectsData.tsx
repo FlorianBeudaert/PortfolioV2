@@ -20,17 +20,17 @@ const projectsData: Project[] = [
   },
   {
     id: 2,
-    title: 'Trefllo',
+    title: 'Zenera Wiki',
     shortDescription:
-      'Trefllo est une application de gestion de tâches inspirée de Trello, développée durant un projet en groupe de formation.',
+      'Zenera Wiki est un projet dans le but de ressourcer et expliquer des mécanique moddifier du jeu Minecraft',
     detailedDescription:
-      "Ce projet a été realiser en groupe de 3 personnes dans le cadre de ma formation. L'objectif était de créer une application mobile de gestion de tâches inspirée de Trello via sont API. L'application permet de créer des tableaux, d'ajouter des taches, assigner des utilisateurs.",
-    technologies: ['React Native'],
-    mainImage: '/assets/projects/trefllo/home.webp',
+      'Site web dédié à mon launcher Minecraft moddé, permettant de faciliter le téléchargement et l’installation pour jouer à des aventures personnalisées entre amis. Le site intègre également un wiki regroupant la documentation de chaque datapack. Interface moderne, intuitive et facile à maintenir.',
+    technologies: ['Next.js', 'Tailwind CSS'],
+    mainImage: '/assets/projects/zanerawiki/logo.webp',
     images: [
-      '/assets/projects/trefllo/drawer.webp',
-      '/assets/projects/trefllo/board.webp',
-      '/assets/projects/trefllo/task.webp',
+      '/assets/projects/zanerawiki/homepage.webp',
+      '/assets/projects/zanerawiki/wikipage.webp',
+      '/assets/projects/zanerawiki/launcher.webp',
     ],
   },
   {

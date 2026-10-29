@@ -2,13 +2,13 @@ import { Education } from '@/types/Education';
 
 export const educationData: Education[] = [
   {
-    title: "Architecte de système d'informations (RNCP niveau 7)",
-    institution: 'EPITECH (Pré-MSc et MSc)',
+    title: "Préparation au MSc – Architecture des systèmes d'information",
+    institution: 'EPITECH',
     location: 'Lille',
     startDate: 'Septembre 2024',
-    endDate: 'Septembre 2027',
+    endDate: 'Novembre 2025',
     description:
-      "Formation centrée sur divers domaines tels que le développement web, la gestion de projet et la cybersécurité, avec 2,5 ans d'alternance pour approfondir les compétences professionnelles.",
+      "Année préparatoire au MSc en Architecture des systèmes d'information, avec une formation axée sur le développement web, la gestion de projet et la cybersécurité. Parcours interrompu à l'issue de la Pré-MSc, faute d'avoir trouvé une alternance pour poursuivre le cursus.",
   },
   {
     title: 'Intégrateur Développeur Web (RNCP niveau 5)',
